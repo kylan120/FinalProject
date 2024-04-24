@@ -4,6 +4,7 @@ using FinalProject.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinalProject.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240424185923_addboardgames")]
+    partial class addboardgames
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -34,10 +37,6 @@ namespace FinalProject.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Image")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -54,7 +53,6 @@ namespace FinalProject.Data.Migrations
                         {
                             ID = 1,
                             Company = "Hasbro",
-                            Image = "monoply.jpg",
                             Name = "Monoply",
                             Players = 8
                         },
@@ -62,7 +60,6 @@ namespace FinalProject.Data.Migrations
                         {
                             ID = 2,
                             Company = "Bethesda",
-                            Image = "fallout.jpg",
                             Name = "Fallout",
                             Players = 8
                         },
@@ -70,7 +67,6 @@ namespace FinalProject.Data.Migrations
                         {
                             ID = 3,
                             Company = "Klaus Teuber",
-                            Image = "settlers.jpg",
                             Name = "Settlers of Catan",
                             Players = 4
                         },
@@ -78,7 +74,6 @@ namespace FinalProject.Data.Migrations
                         {
                             ID = 4,
                             Company = "Hasbro",
-                            Image = "sorry.jpg",
                             Name = "Sorry",
                             Players = 4
                         },
@@ -86,7 +81,6 @@ namespace FinalProject.Data.Migrations
                         {
                             ID = 5,
                             Company = "Bethesda",
-                            Image = "skyrim.jpg",
                             Name = "Elder Scrolls: Skyrim",
                             Players = 4
                         });

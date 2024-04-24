@@ -1,0 +1,28 @@
+﻿@model List<BoardGame>
+@{
+    ViewData["Title"] = "Board Games";
+}
+
+<table class="table">
+    <thead>
+        <th></th>
+        <th>Name</th>
+        <th>Company</th>
+        <th>Players</th>
+    </thead>
+    <tbody>
+        @foreach( var boardgame in Model)
+        {
+            <tr>
+                <td>
+                    <img src="~/images/@boardgame.Image" alt="@boardgame.Name"
+                         title="@boardgame.Name" />
+                </td>
+                <td>@boardgame.Name</td>
+                <td>@boardgame.Company</td>
+                <td>@boardgame.Players</td>
+            </tr>
+
+        }
+    </tbody>
+</table>

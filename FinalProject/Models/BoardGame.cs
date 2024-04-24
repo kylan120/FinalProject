@@ -10,5 +10,7 @@ namespace FinalProject.Models
         public string Name { get; set; }  
         public string Company {  get; set; }
         public int Players { get; set; }  
+        public string Image {  get; set; }  
     }
+
 }
