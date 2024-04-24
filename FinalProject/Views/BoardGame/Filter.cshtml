@@ -1,0 +1,27 @@
+﻿@model List<BoardGame>
+
+@{
+    ViewBag.Title = "Filtered BoardGamess";
+}
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var game in Model)
+        {
+            <tr>
+                <td>@game.Name</td>
+                <td>@game.Price.ToString("c")</td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-controller="BoardGame" asp-action="BoardGame">Return</a>

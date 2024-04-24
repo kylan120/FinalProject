@@ -38,6 +38,9 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+app.MapControllerRoute(
+    name: "BoardGames",
+    pattern: "{controller=BoardGame}/{action=BoardGame}/{id?}");
 app.MapRazorPages();
 
 app.Run();

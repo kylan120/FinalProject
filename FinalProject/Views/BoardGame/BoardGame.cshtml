@@ -3,6 +3,19 @@
     ViewData["Title"] = "Board Games";
 }
 <h1>View Board Games!</h1>
+<form asp-controller="BoardGame" asp-action="Filter" method="get">
+    <label for="priceFilter">Filter by price:</label>
+    <select id="priceFilter" name="priceFilter">
+        <option value="">All Genres</option>
+        @foreach (var game in Model)
+        {
+            <option value="@game.Price">@game.Price</option>
+        }
+
+    </select>
+    <button type="submit">Filter</button>
+</form>
+
 
 <table class="table">
     <thead>
