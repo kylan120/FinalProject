@@ -21,11 +21,11 @@ namespace FinalProject.Controllers
             if (!double.TryParse(priceFilter, out selectedPrice))
             {
                 
-                return RedirectToAction("Filter");
+                return RedirectToAction("BoardGame");
             }
 
            
-            var filteredBoardGames = _context.BoardGames.Where(g => g.Price == selectedPrice).ToList();
+            var filteredBoardGames = _context.BoardGames.Where(g => g.Price == selectedPrice).Distinct().ToList();
 
             
             return View(filteredBoardGames);
