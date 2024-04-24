@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using FinalProject.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace FinalProject.Data
@@ -9,5 +10,7 @@ namespace FinalProject.Data
             : base(options)
         {
         }
+
+        public DbSet<BoardGame> BoardGames { get; set; }    
     }
 }
