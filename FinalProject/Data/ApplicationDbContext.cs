@@ -24,7 +24,8 @@ namespace FinalProject.Data
                     Name = "Monoply",
                     Company = "Hasbro",
                     Players = 8,
-                    Image = "monoply.jpg"
+                    Image = "monoply.jpg",
+                    Price = 20.00
                 },
                 new BoardGame
                 {
@@ -32,7 +33,8 @@ namespace FinalProject.Data
                     Name = "Fallout",
                     Company = "Bethesda",
                     Players = 8,
-                    Image = "fallout.jpg"
+                    Image = "fallout.jpg",
+                    Price = 60.00
                 },
                 new BoardGame
                 {
@@ -40,7 +42,8 @@ namespace FinalProject.Data
                     Name = "Settlers of Catan",
                     Company = "Klaus Teuber",
                     Players = 4,
-                    Image = "settlers.jpg"
+                    Image = "settlers.jpg",
+                    Price = 10.00
                 },
                 new BoardGame
                 {
@@ -48,7 +51,8 @@ namespace FinalProject.Data
                     Name = "Sorry",
                     Company = "Hasbro",
                     Players = 4,
-                    Image = "sorry.jpg"
+                    Image = "sorry.jpg",
+                    Price = 30.00
                 },
                 new BoardGame
                 {
@@ -56,7 +60,8 @@ namespace FinalProject.Data
                     Name = "Elder Scrolls: Skyrim",
                     Company = "Bethesda",
                     Players = 4,
-                    Image = "skyrim.jpg"
+                    Image = "skyrim.jpg",
+                    Price = 60.00
                 }
                 );
         }

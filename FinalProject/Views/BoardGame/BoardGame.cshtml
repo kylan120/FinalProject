@@ -10,6 +10,7 @@
         <th>Name</th>
         <th>Company</th>
         <th>Players</th>
+        <th>Price</th>
     </thead>
     <tbody>
         @foreach( var boardgame in Model)
@@ -22,6 +23,7 @@
                 <td>@boardgame.Name</td>
                 <td>@boardgame.Company</td>
                 <td>@boardgame.Players</td>
+                <td>@boardgame.Price.ToString("c")</td>
             </tr>
 
         }
