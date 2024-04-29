@@ -1,29 +1,21 @@
 ﻿@model List<BoardGame>
+
 @{
     ViewData["Title"] = "Board Games";
 }
 
 <h1>View Board Games!</h1>
-<form asp-controller="BoardGame" asp-action="Filter" method="get">
-    <label for="priceFilter">Filter by price:</label>
-    <select id="priceFilter" name="priceFilter">
-        <option value="">All Prices</option>
-        @foreach (var game in Model)
-        {
-            <option value="@game.Price">@game.Price</option>
-        }
-    </select>
-    <button type="submit">Filter</button>
-</form>
 
 <table class="table">
     <thead>
-    <th></th>
-    <th>Name</th>
-    <th>Company</th>
-    <th>Players</th>
-    <th>Price</th>
-    <th></th>
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Company</th>
+            <th>Players</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
     </thead>
     <tbody>
         @foreach (var boardgame in Model)
@@ -37,7 +29,12 @@
                 <td>@boardgame.Players</td>
                 <td>@boardgame.Price.ToString("c")</td>
                 <td>
-                    
+                    <form method="post" asp-controller="BoardGame" asp-action="AddToCart">
+                        <input type="hidden" name="id" value="@boardgame.ID" />
+                        <label for="quantity_@boardgame.ID">Quantity:</label>
+                        <input type="number" id="quantity_@boardgame.ID" name="quantity" value="1" min="1" />
+                        <button type="submit">Add to Cart</button>
+                    </form>
                 </td>
             </tr>
         }

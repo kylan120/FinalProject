@@ -1,4 +1,42 @@
-﻿@{
+﻿@model Cart
+
+@{
     ViewData["Title"] = "Cart";
 }
 
+<h1>Shopping Cart</h1>
+
+@if (Model.Items.Count == 0)
+{
+    <p>Your cart is empty.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Items)
+            {
+                <tr>
+                    <td>@item.BoardGame.Name</td>
+                    <td>@item.BoardGame.Price.ToString("c")</td>
+                    <td>@item.Quantity</td>
+                    <td>@((item.BoardGame.Price * item.Quantity).ToString("c"))</td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3"><strong>Total</strong></td>
+                <td>@Model.Items.Sum(item => item.BoardGame.Price * item.Quantity).ToString("c")</td>
+            </tr>
+        </tfoot>
+    </table>
+}
