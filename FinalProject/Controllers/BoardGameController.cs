@@ -31,7 +31,10 @@ namespace FinalProject.Controllers
             return View(filteredBoardGames);
         }
 
-
+        public IActionResult Cart()
+        {
+            return View();
+        }
         [Route("BoardGames")]
         public IActionResult BoardGame()
         {
