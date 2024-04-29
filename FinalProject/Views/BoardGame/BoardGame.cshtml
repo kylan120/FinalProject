@@ -2,6 +2,7 @@
 @{
     ViewData["Title"] = "Board Games";
 }
+
 <h1>View Board Games!</h1>
 <form asp-controller="BoardGame" asp-action="Filter" method="get">
     <label for="priceFilter">Filter by price:</label>
@@ -11,34 +12,34 @@
         {
             <option value="@game.Price">@game.Price</option>
         }
-
     </select>
     <button type="submit">Filter</button>
 </form>
 
-
 <table class="table">
     <thead>
-        <th></th>
-        <th>Name</th>
-        <th>Company</th>
-        <th>Players</th>
-        <th>Price</th>
+    <th></th>
+    <th>Name</th>
+    <th>Company</th>
+    <th>Players</th>
+    <th>Price</th>
+    <th></th>
     </thead>
     <tbody>
-        @foreach( var boardgame in Model)
+        @foreach (var boardgame in Model)
         {
             <tr>
                 <td>
-                    <img src="~/images/@boardgame.Image" alt="@boardgame.Name"
-                         title="@boardgame.Name" />
+                    <img src="~/images/@boardgame.Image" alt="@boardgame.Name" title="@boardgame.Name" />
                 </td>
                 <td>@boardgame.Name</td>
                 <td>@boardgame.Company</td>
                 <td>@boardgame.Players</td>
                 <td>@boardgame.Price.ToString("c")</td>
+                <td>
+                    
+                </td>
             </tr>
-
         }
     </tbody>
 </table>
