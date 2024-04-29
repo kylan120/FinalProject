@@ -9,6 +9,7 @@
 <table class="table">
     <thead>
         <tr>
+            <th></th>
             <th>Name</th>
             <th>Price</th>
         </tr>
@@ -17,6 +18,10 @@
         @foreach (var game in Model)
         {
             <tr>
+                <td>
+                    <img src="~/images/@game.Image" alt="@game.Name"
+                         title="@game.Name" />
+                </td>
                 <td>@game.Name</td>
                 <td>@game.Price.ToString("c")</td>
 

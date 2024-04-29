@@ -6,7 +6,7 @@
 <form asp-controller="BoardGame" asp-action="Filter" method="get">
     <label for="priceFilter">Filter by price:</label>
     <select id="priceFilter" name="priceFilter">
-        <option value="">All Genres</option>
+        <option value="">All Prices</option>
         @foreach (var game in Model)
         {
             <option value="@game.Price">@game.Price</option>
