@@ -3,6 +3,7 @@ using FinalProject.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FinalProject.Controllers
 {
@@ -62,7 +63,7 @@ namespace FinalProject.Controllers
         }
 
 
-
+        [Authorize]
         public IActionResult Cart()
         {
             var cartItemsString = TempData["CartItems"] as string ?? "";
