@@ -1,0 +1,40 @@
+﻿@model BoardGame
+@{
+    string title = ViewBag.Action + " Game";
+    ViewBag.Title = title;
+}
+
+<h2>@ViewBag.Title</h2>
+
+<form asp-action="edit" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="Image">Image</label>"
+        <input asp-for="Image" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Name">Name</label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Company">Company</label>
+        <input asp-for="Company" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Players">Players</label>
+        <input asp-for="Players" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Price">Price</label>
+        <input asp-for="Price" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">@ViewBag.Action</button>
+    <a asp-controller="Home" asp-action="Index"
+       class="btn btn-primary">Cancel</a>
+</form>
+

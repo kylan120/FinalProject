@@ -18,6 +18,7 @@
         </tr>
     </thead>
     <tbody>
+        <a asp-controller="BoardGame" asp-action="Add">Add New Board Games</a>
         @foreach (var boardgame in Model)
         {
             <tr>
@@ -35,6 +36,10 @@
                         <input type="number" id="quantity_@boardgame.ID" name="quantity" value="1" min="1" />
                         <button type="submit">Add to Cart</button>
                     </form>
+                </td>
+                <td>
+                    <a asp-controller="BoardGame" asp-action="Edit" asp-route-id="@boardgame?.ID">Edit</a>
+                    <a asp-controller="BoardGame" asp-action="Delete" asp-route-id="@boardgame?.ID">Delete</a>
                 </td>
             </tr>
         }

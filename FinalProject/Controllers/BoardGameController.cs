@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.Ajax.Utilities;
 
 namespace FinalProject.Controllers
 {
@@ -83,6 +84,56 @@ namespace FinalProject.Controllers
             }
 
             return View(cart);
+        }
+
+        [HttpGet]
+        public IActionResult Add()
+        {
+            ViewBag.Action = "Add";
+            ViewBag.SelectedGenre = "";
+            return View("Edit", new BoardGame());
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            ViewBag.Action = "Edit";
+            var boardGame = _context.BoardGames.Find(id);
+            return View(boardGame);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(BoardGame boardGame)
+        {
+            if (ModelState.IsValid)
+            {
+                if (boardGame.ID == 0)
+                    _context.BoardGames.Add(boardGame);
+                else
+                    _context.BoardGames.Update(boardGame);
+                _context.SaveChanges();
+                return RedirectToAction("BoardGame");
+            }
+            else
+            {
+                ViewBag.Action = (boardGame.ID == 0) ? "Add" : "Edit";
+                return View(boardGame);
+            }
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            var game = _context.BoardGames.Find(id);
+            return View(game);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(BoardGame boardGame)
+        {
+            _context.BoardGames.Remove(boardGame);
+            _context.SaveChanges();
+            return RedirectToAction("BoardGame");
         }
 
 

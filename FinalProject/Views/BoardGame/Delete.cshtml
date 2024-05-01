@@ -1,0 +1,32 @@
+﻿@model BoardGame
+@{
+    ViewBag.Title = "Delete Board Game";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete</title>
+</head>
+<body>
+    <h2>Confirm Deletion</h2>
+
+    <table>
+        <tr>
+            <td>@Model.Image</td>
+            <td>@Model.Name</td>
+            <td>@Model.Company</td>
+            <td>@Model.Players</td>
+            <td>@Model.Price</td>
+        </tr>
+    </table>
+    <br />
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="ID" />
+
+        <button type="submit" class="btn btn-primary">Delete</button>
+        <a asp-controller="Home" asp-action="Index"
+           class="btn btn-primary">Go Back</a>
+    </form>
+</body>
+</html>
